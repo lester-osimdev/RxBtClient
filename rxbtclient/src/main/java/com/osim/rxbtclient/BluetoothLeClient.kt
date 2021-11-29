@@ -70,7 +70,7 @@ class BluetoothLeClient @Inject constructor(
     }
 
     private fun initTimber() =
-        if (Timber.treeCount() == 0) Timber.plant(Timber.DebugTree()) else Timber.i("Timber already initialize")
+        if (Timber.treeCount == 0) Timber.plant(Timber.DebugTree()) else Timber.i("Timber already initialize")
 
     override fun isConnected(): Boolean =
         rxBleDevice?.connectionState == RxBleConnection.RxBleConnectionState.CONNECTED
