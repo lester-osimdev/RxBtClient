@@ -60,10 +60,10 @@ class BluetoothLeClient @Inject constructor(
 
         RxBleClient.updateLogOptions(
             LogOptions.Builder()
-                .setLogLevel(LogConstants.INFO)
-                .setMacAddressLogSetting(LogConstants.MAC_ADDRESS_FULL)
-                .setUuidsLogSetting(LogConstants.UUIDS_FULL)
-                .setShouldLogAttributeValues(true)
+                .setLogLevel(if (BuildConfig.DEBUG) LogConstants.VERBOSE else LogConstants.NONE)
+                .setMacAddressLogSetting(if (BuildConfig.DEBUG) LogConstants.MAC_ADDRESS_FULL else LogConstants.NONE)
+                .setUuidsLogSetting(if(BuildConfig.DEBUG) LogConstants.UUIDS_FULL else LogConstants.NONE)
+                .setShouldLogAttributeValues(BuildConfig.DEBUG)
                 .build()
         )
 
